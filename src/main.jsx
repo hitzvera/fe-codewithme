@@ -20,6 +20,7 @@ import Profile from "./pages/Profile.jsx";
 import NavbarTemplate from "./components/template/NavbarTemplate/index.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx";
 import CourseContent from "./pages/CourseContent.jsx";
+import MyCourses from "./pages/MyCourses.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "courses",
         element: <Courses />,
+      },
+      {
+        path: "my-courses",
+        element: <MyCourses />,
       },
       {
         path: "profile",

@@ -97,7 +97,7 @@ export default function CourseContent() {
       <section className="flex-1 h-[calc(100vh-64px)] overflow-auto">
         <ContentCourse />
       </section>
-      <aside className="w-[500px] h-[calc(100vh-64px)] bg-slate-100 flex flex-col items-start text-xl py-4 px-8 overflow-y-auto">
+      <aside className="w-[400px] h-[calc(100vh-64px)] bg-slate-100 flex flex-col items-start text-xl py-4 px-8 overflow-y-auto overflow-x-hidden">
         {javascriptContent.map((item, index) => (
           <Disclosure key={index} className="">
             {({ open }) => (

@@ -4,7 +4,7 @@ import Button from "../../atoms/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function Card({ imageUrl, title, description, onClickHandler }) {
+export default function Card({ imageUrl, title, description, onClickHandler, buttonText }) {
   return (
     <figure className=" cursor-pointer flex-1 max-h-[500px]" onClick={onClickHandler}>
       <div className="w-full border-x-2 border-t-2 rounded flex justify-center">
@@ -33,7 +33,7 @@ export default function Card({ imageUrl, title, description, onClickHandler }) {
               <p>5.0</p>
             </div>
           </div>
-          <Button customStyle={"w-full bg-slate-100 py-2"}>Enroll</Button>
+          <Button customStyle={"w-full bg-slate-100 py-2"}>{buttonText}</Button>
         </div>
       </div>
     </figure>

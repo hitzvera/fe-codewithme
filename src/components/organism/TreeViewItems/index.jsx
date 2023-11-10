@@ -1,14 +1,21 @@
 import {
+  faBarsProgress,
   faNetworkWired,
   faPersonRifle,
 } from "@fortawesome/free-solid-svg-icons";
 import TreeViewItem from "../../moleculs/TreeViewItem";
 import { useLocation, useNavigate } from "react-router-dom";
+import { stringToSlug } from "../../../utils/utils";
 const listTreeViewItems = [
   {
     id: 1,
     text: "courses",
     icon: faNetworkWired,
+  },
+  {
+    id: 3,
+    text: "my courses",
+    icon: faBarsProgress,
   },
   {
     id: 2,
@@ -30,7 +37,7 @@ export default function TreeViewItems() {
           text={item.text}
           icon={item.icon}
           currentPath={currentPath}
-          onClickHandler={() => navigate(`/home/${item.text}`)}
+          onClickHandler={() => navigate(`/home/${stringToSlug(item.text)}`)}
         />
       ))}
     </div>
