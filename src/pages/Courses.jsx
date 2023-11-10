@@ -1,31 +1,15 @@
-import Cards from "../components/organism/Cards";
+import { useDispatch, useSelector } from 'react-redux';
+import Cards from '../components/organism/Cards';
+import { getAllCourses } from '../redux/reducers/courses.slice';
 
-const listCourses = [
-  {
-    id: 1,
-    type: "courses",
-    title: 'Javascript',
-    buttonText: 'Enroll',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl:
-      'https://academy.alterra.id/blog/wp-content/uploads/2021/07/Logo-Javascript.png',
-  },
-  {
-    id: 2,
-    type: "courses",
-    title: 'Java',
-    buttonText: 'Enroll',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    imageUrl:
-      'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png',
-  },
-];
 export default function Courses() {
+  const dispatch = useDispatch();
+  dispatch(getAllCourses());
+  const courses = useSelector((state) => state.courses.courses);
+
   return (
-    <div className="p-8">
-      <Cards listCourses={listCourses} />
+    <div className='p-8'>
+      <Cards listCourses={courses} />
     </div>
   );
 }

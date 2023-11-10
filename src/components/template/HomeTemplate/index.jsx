@@ -1,11 +1,14 @@
-import Title from "../../atoms/Title";
-import TreeViewItems from "../../organism/TreeViewItems";
-import NavigationHeader from "../../moleculs/NavigationHeader";
-import Text from "../../atoms/Text";
-import Button from "../../atoms/Button";
-import { ButtonTypes } from "../../../styles";
+import Title from '../../atoms/Title';
+import TreeViewItems from '../../organism/TreeViewItems';
+import NavigationHeader from '../../moleculs/NavigationHeader';
+import Text from '../../atoms/Text';
+import Button from '../../atoms/Button';
+import { ButtonTypes } from '../../../styles';
+import { useSelector } from 'react-redux';
 
 export default function HomeTemplate({ children }) {
+  const user = useSelector((state) => state.home.user);
+
   return (
     <div className='w-full max-h-screen flex'>
       <div className='flex flex-1'>
@@ -20,10 +23,10 @@ export default function HomeTemplate({ children }) {
               alt='avatar profile'
               className='max-w-[25px] rounded-full'
             />
-            <Text>username</Text>
-            <Button typeStyle={ButtonTypes.DANGER}>Logout</Button>
+            <Text>{user.username}</Text>
+            <Button typeStyle={ButtonTypes.WARNING}>Logout</Button>
           </NavigationHeader>
-          <div className="overflow-y-auto h-[100vh]">{children}</div>
+          <div className='overflow-y-auto h-[100vh]'>{children}</div>
         </main>
       </div>
     </div>
